@@ -1,0 +1,180 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Button } from '.';
+
+<Meta
+  title="Components/Button"
+  component={Button}
+  args={{
+    children: 'Click',
+    variant: 'filled',
+    size: 'medium',
+    disabled: false,
+    isLoading: false,
+    type: 'button',
+  }}
+  argTypes={{
+    as: { type: 'symbol' },
+    children: {
+      type: 'string',
+    },
+  }}
+  parameters={{
+    docs: {
+      source: {
+        language: 'jsx',
+        type: 'auto',
+        state: 'open',
+      },
+    },
+  }}
+/>
+
+export const Template = ({ ...args }) => <Button {...args} />;
+
+# Button
+
+O componente `Button` é utilizado para permitir que o usuário possa realizar ações dentro da aplicação.
+
+## Import
+
+```sh
+  import { Button } from '@drogo-ui/components';
+```
+
+## Basic
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      children: 'Button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Variations Theme
+
+O `Button` pode receber a prop `variant`. As variações de tema podem criar botões preenchidos, contornados ou apenas o texto.
+
+<Canvas>
+  <Story name="Thema">
+    <Button m="0.5rem" variant="filled">
+      Primary
+    </Button>
+    <Button m="0.5rem" variant="standard">
+      Secondary
+    </Button>
+    <Button m="0.5rem" variant="outline">
+      Outline
+    </Button>
+    <Button m="0.5rem" variant="approve">
+      Approve
+    </Button>
+    <Button m="0.5rem" variant="danger">
+      Cancel
+    </Button>
+  </Story>
+</Canvas>
+
+## Size Variations
+
+O `Button` pode receber a prop `size`. As variações de tamanho podem criar botões pequenos, medios, grandes e tamanho total disponível.
+
+<Canvas>
+  <Story name="Size">
+    <Button m="0.5rem" variant="standard" size="small">
+      Small
+    </Button>
+    <Button m="0.5rem" variant="standard" size="medium">
+      Medium
+    </Button>
+    <Button m="0.5rem" variant="standard" size="large">
+      Large
+    </Button>
+    <Button variant="standard" size="fullSize">
+      Full Size
+    </Button>
+  </Story>
+</Canvas>
+
+## Link
+
+O `Button` pode receber a prop `as`. Com ela podemos substituir o elemento html `button` por outro, por exemplo o elemento `a` para criar um link.
+
+<Canvas>
+  <Story
+    name="Link"
+    args={{
+      children: 'Link',
+      as: 'a',
+      href: '#',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Disabled Button
+
+O `Button` pode receber a prop `disabled`. Com isso todas as suas interações ficam bloqueadas.
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{
+      children: 'Button',
+    }}
+    parameters={{
+      backgrounds: {
+        default: 'paylivre',
+      },
+    }}
+  >
+    <Button m="0.5rem" disabled variant="filled">
+      Primary
+    </Button>
+    <Button m="0.5rem" disabled variant="standard">
+      Secondary
+    </Button>
+    <Button m="0.5rem" disabled variant="outline">
+      Outline
+    </Button>
+    <Button m="0.5rem" disabled variant="approve">
+      Approve
+    </Button>
+    <Button m="0.5rem" disabled variant="danger">
+      Cancel
+    </Button>
+  </Story>
+</Canvas>
+
+## Loading Button
+
+O `Button` pode receber a prop `isLoading` para informar que está carregando.
+
+<Canvas>
+  <Story name="Loading">
+    <Button m="0.5rem" isLoading variant="filled">
+      Primary
+    </Button>
+    <Button m="0.5rem" isLoading variant="standard">
+      Secondary
+    </Button>
+    <Button m="0.5rem" isLoading variant="outline">
+      Outline
+    </Button>
+    <Button m="0.5rem" isLoading variant="approve">
+      Approve
+    </Button>
+    <Button m="0.5rem" isLoading variant="danger">
+      Cancel
+    </Button>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Button} />

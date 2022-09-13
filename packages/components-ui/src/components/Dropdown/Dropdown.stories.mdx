@@ -1,0 +1,75 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Dropdown } from '.';
+
+<Meta
+  title="Components/Dropdown"
+  component={Dropdown}
+  args={{
+    title: 'Dropdown',
+    children: [<p>Content1</p>, <p>Content2</p>],
+  }}
+  argTypes={{
+    colorContent: { control: 'color' },
+  }}
+  parameters={{}}
+/>
+
+export const Template = ({ ...args }) => (
+  <div
+    style={{
+      height: '230px',
+    }}
+  >
+    <Dropdown {...args} />
+  </div>
+);
+
+# Dropdown
+
+<!-- Adicionar uma descrição para o componente -->
+
+O componente `Dropdown` mostra uma lista com opções a ser selecionada.
+
+## Import
+
+```sh
+  import { Dropdown } from '@drogo-ui/components';
+```
+
+## Basic
+
+O Dropdown espera receber no mínimo 2 componentes filhos.
+
+<Canvas>
+  <Story name="Default" args={{}} argTypes={{}} parameters={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Largura ajustada
+
+Ele também pode ter sua largura ajustada com a prop maxWidth. Por padrão o maxWidth é 22.5rem.
+
+<Canvas>
+  <Story
+    name="Example"
+    args={{
+      maxWidth: '100%',
+      children: [
+        <p>Content1</p>,
+        <p>Content2</p>,
+        <p>Content3</p>,
+        <p>Content4</p>,
+      ],
+    }}
+    argTypes={{}}
+    parameters={{}}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Dropdown} />

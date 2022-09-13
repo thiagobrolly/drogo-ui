@@ -1,0 +1,79 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Logo } from '.';
+
+<Meta
+  title="Components/Logo"
+  component={Logo}
+  args={{
+    color: 'primary',
+    size: 'medium',
+    showSlogan: false,
+  }}
+  argTypes={{}}
+  parameters={{}}
+/>
+
+export const Template = ({ ...args }) => <Logo {...args} />;
+
+# Logo
+
+<!-- Adicionar uma descrição para o componente -->
+
+O componente `Logo` apresenta a imagem da logo da Paylivre
+
+## Import
+
+```sh
+  import { Logo } from '@drogo-ui/components';
+```
+
+## Basic
+
+<Canvas>
+  <Story name="Default" args={{}} argTypes={{}} parameters={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## White
+
+<Canvas
+  style={{
+    background:
+      'linear-gradient(90deg, rgba(33,90,255,1) 20%, rgba(0,151,255,1) 60%)',
+  }}
+>
+  <Story
+    name="White"
+    args={{
+      color: 'white',
+      size: 'medium',
+    }}
+    argTypes={{}}
+    parameters={{
+      backgrounds: {
+        default: 'dark',
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Com Slogan
+
+<Canvas>
+  <Story
+    name="Show Slogan"
+    args={{ showSlogan: true }}
+    argTypes={{}}
+    parameters={{}}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Logo} />

@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Skeleton } from '.';
+
+<Meta
+  title="Layout/Skeleton"
+  component={Skeleton}
+  args={{
+    height: '15px',
+  }}
+  argTypes={{}}
+  parameters={{}}
+/>
+
+export const Template = ({ ...args }) => <Skeleton {...args} />;
+
+export const Multiplies = ({ ...args }) => (
+  <div>
+    <Skeleton {...args} style={{ 'margin-top': '3px' }} />
+    <Skeleton {...args} />
+    <Skeleton {...args} />
+    <Skeleton {...args} />
+  </div>
+);
+
+# Skeleton
+
+<!-- Adicionar uma descrição para o componente -->
+
+O componente `Skeleton` substitui o loading do componente `Card` e `Table`.
+
+## Import
+
+```sh
+  import { Skeleton } from '@drogo-ui/components';
+```
+
+## Basic
+
+O `Skeleton` espera receber um `height` com altura e a extensão (Ex.: 100px, 0.5rem...), mas caso nada seja passado o valor padrão é de 100%.
+
+<Canvas>
+  <Story name="Default" args={{}} argTypes={{}} parameters={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Multiplies" args={{}} argTypes={{}} parameters={{}}>
+    {Multiplies.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Skeleton} />
